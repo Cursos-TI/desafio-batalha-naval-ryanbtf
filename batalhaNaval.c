@@ -52,6 +52,72 @@ int main() {
         tabuleiro[linha_d2 + i][coluna_d2 + i] = navio_diagonal2[i];
     }
     
+    //define habilidade cone
+    int habilidade_cone[3][5] = {
+        {0,0,5,0,0},
+        {0,5,5,5,0},
+        {5,5,5,5,5}};
+    int linha_cone = 0;
+    int coluna_cone = 2;
+
+    //posiciona a habilidade cone
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 5; j++) {
+            int valor = habilidade_cone[i][j];
+                if (valor != 0) {
+                    int linha = linha_cone + i;
+                    int coluna = coluna_cone + j - 2;  // centraliza o cone horizontalmente
+                    if (linha >= 0 && linha < tamanho && coluna >= 0 && coluna < tamanho) {
+                        tabuleiro[linha][coluna] = valor;
+                }
+            }
+        }
+    }
+
+    //define a habilidade octaedro
+    int habilidade_octaedro[3][5] = {
+        {0,0,5,0,0},
+        {0,5,5,5,0},
+        {0,0,5,0,0}};
+    int octaedro_linha = 6;
+    int octaedro_coluna = 2;
+
+    //posiciona habilidade octaedro
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 5; j++) {
+            int valor = habilidade_octaedro[i][j];
+                if (valor != 0) {
+                    int linha = octaedro_linha + i;
+                    int coluna = octaedro_coluna + j;
+                if (linha >= 0 && linha < tamanho && coluna >= 0 && coluna < tamanho) {
+                    tabuleiro[linha][coluna] = valor;
+                }
+            }
+        }
+    }
+
+    //define habilidade cruz
+    int habilidade_cruz[3][5] = {
+        {0,0,5,0,0},
+        {5,5,5,5,5},
+        {0,0,5,0,0}};
+    int cruz_linha = 0;
+    int cruz_coluna = 7;
+
+    //posiciona a habilidade cruz
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 5; j++) {
+            int valor = habilidade_cruz[i][j];
+                if (valor != 0) {
+                    int linha = cruz_linha + i;
+                    int coluna = cruz_coluna + j - 2; // centraliza horizontalmente
+                if (linha >= 0 && linha < tamanho && coluna >= 0 && coluna < tamanho) {
+                    tabuleiro[linha][coluna] = valor;
+                }
+            }
+        }
+    }
+    
  
     //exibe o tabuleiro
     printf("Tabuleiro Batalha Naval:\n\n");
