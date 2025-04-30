@@ -32,6 +32,27 @@ int main() {
         tabuleiro[linha_v + i][coluna_v] = navio_vertical[i];
     }
 
+    //define o navio diagonal1
+    int navio_diagonal1[3] = {3, 3, 3};
+    int linha_d1 = 4;
+    int coluna_d1 = 3;
+
+    //posiciona o navio diagonal1 (coluna varia, linha varia)
+    for (int i = 0; i < tamanho_navio; i++) {
+        tabuleiro[linha_d1 + i][coluna_d1 - i] = navio_diagonal1[i];
+    }
+
+    //define o navio diagonal2
+    int navio_diagonal2[3] = {3, 3, 3};
+    int linha_d2 = 7;
+    int coluna_d2 = 3;
+
+    //posiciona o navio diagonal2 (coluna varia, linha varia)
+    for (int i = 0; i < tamanho_navio; i++) {
+        tabuleiro[linha_d2 + i][coluna_d2 + i] = navio_diagonal2[i];
+    }
+    
+ 
     //exibe o tabuleiro
     printf("Tabuleiro Batalha Naval:\n\n");
     for (int i = 0; i < tamanho; i++) {
